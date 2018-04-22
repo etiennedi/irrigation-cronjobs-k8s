@@ -1,0 +1,264 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-back-on-at-12
+spec:
+  schedule: "0 10 * * * "  # 10:00 UTC -> 12:00 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-back-on-at-12
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_back"
+                - "-d"
+                - "args=on"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-back-off-at-12
+spec:
+  schedule: "5 10 * * * "  # 10:05 UTC -> 12:05 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-back-off-at-12
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_back"
+                - "-d"
+                - "args=off"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-side-on-at-12
+spec:
+  schedule: "10 10 * * * "  # 10:10 UTC -> 12:10 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-side-on-at-12
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_side"
+                - "-d"
+                - "args=on"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-side-off-at-12
+spec:
+  schedule: "15 10 * * * "  # 10:15 UTC -> 12:15 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-side-off-at-12
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_side"
+                - "-d"
+                - "args=off"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-back-on-at-16
+spec:
+  schedule: "0 14 * * * "  # 14:00 UTC -> 16:00 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-back-on-at-16
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_back"
+                - "-d"
+                - "args=on"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-back-off-at-16
+spec:
+  schedule: "5 14 * * * "  # 14:05 UTC -> 16:05 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-back-off-at-16
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_back"
+                - "-d"
+                - "args=off"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-side-on-at-16
+spec:
+  schedule: "10 14 * * * "  # 14:10 UTC -> 16:10 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-side-on-at-16
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_side"
+                - "-d"
+                - "args=on"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: turn-side-off-at-16
+spec:
+  schedule: "15 14 * * * "  # 14:15 UTC -> 16:15 German Summer Time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: turn-side-off-at-16
+              image: byrnedo/alpine-curl
+              args:
+                - "-v"
+                - "-H"
+                - "Authorization: Bearer $(ACCESS_TOKEN)"
+                - "https://api.particle.io/v1/devices/$(DEVICE_ID)/zone_side"
+                - "-d"
+                - "args=off"
+              env:
+                - name: ACCESS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: access_token
+                - name: DEVICE_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: particle
+                      key: device_id
+          restartPolicy: Never
