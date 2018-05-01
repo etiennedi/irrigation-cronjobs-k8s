@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   name: turn-back-on-at-12
 spec:
-  schedule: "0 10 * * * "  # 10:00 UTC -> 12:00 German Summer Time
+  schedule: "0 10 * * * "
   jobTemplate:
     spec:
       template:
@@ -31,13 +31,14 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: turn-back-off-at-12
 spec:
-  schedule: "5 10 * * * "  # 10:05 UTC -> 12:05 German Summer Time
+  schedule: "5 10 * * * "
   jobTemplate:
     spec:
       template:
@@ -64,13 +65,14 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: turn-side-on-at-12
 spec:
-  schedule: "10 10 * * * "  # 10:10 UTC -> 12:10 German Summer Time
+  schedule: "10 10 * * * "
   jobTemplate:
     spec:
       template:
@@ -97,13 +99,14 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: turn-side-off-at-12
 spec:
-  schedule: "15 10 * * * "  # 10:15 UTC -> 12:15 German Summer Time
+  schedule: "15 10 * * * "
   jobTemplate:
     spec:
       template:
@@ -130,13 +133,14 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: turn-back-on-at-16
 spec:
-  schedule: "0 14 * * * "  # 14:00 UTC -> 16:00 German Summer Time
+  schedule: "0 14 * * * "
   jobTemplate:
     spec:
       template:
@@ -163,13 +167,14 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: turn-back-off-at-16
 spec:
-  schedule: "5 14 * * * "  # 14:05 UTC -> 16:05 German Summer Time
+  schedule: "5 14 * * * "
   jobTemplate:
     spec:
       template:
@@ -196,13 +201,14 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: turn-side-on-at-16
 spec:
-  schedule: "10 14 * * * "  # 14:10 UTC -> 16:10 German Summer Time
+  schedule: "10 14 * * * "
   jobTemplate:
     spec:
       template:
@@ -229,13 +235,14 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: turn-side-off-at-16
 spec:
-  schedule: "15 14 * * * "  # 14:15 UTC -> 16:15 German Summer Time
+  schedule: "15 14 * * * "
   jobTemplate:
     spec:
       template:
@@ -262,3 +269,4 @@ spec:
                       name: particle
                       key: device_id
           restartPolicy: Never
+...
